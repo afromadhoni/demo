@@ -24,13 +24,13 @@ class lCrud extends Controller
 
         $query = DB::table('users')->insert([
             'username'=>$request->input('username'),
-            'password'=>$request->input('password')
+            'password'=>$request->input('password'),
         ]);
 
         if($query){
             echo "Data have been successfuly inserted";
         }else{
-            return back()->with('fail','something went wrong');
+            echo "Fail, something went wrong";
         }
     }
 }

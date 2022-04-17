@@ -27,7 +27,7 @@
             </div>
         @endif
 
-            <form action="add" method="post">
+            <form action="add3" method="post">
 
             @csrf
 
@@ -44,7 +44,7 @@
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">SAVE</button>
+                    <button type="submit" class="btn btn-primary btn-block">CHECK</button>
                 </div>
             </form>
         </hr>

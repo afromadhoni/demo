@@ -22,13 +22,13 @@ class lUserCheck extends Controller
             'password'=>'required'
         ]);
 
-//        $query = DB::table('users')->where(['username'=>$Request->input('username'), 'password'=>$Request->input('password')])->exists();
+        $query = DB::table('users')->where(['username'=>$request->input('username'), 'password'=>$request->input('password')])->exists();
 
-        if(DB::table('users')->where(['username'->$Request->input('username'), 'password'->$Request->input('password')])->exists())
+        if($query)
         {
-            echo "ok";
+            echo "username valid";
         }else{
-            echo "no";
+            echo "username not valid";
         }
     }
 }

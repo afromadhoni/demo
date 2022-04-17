@@ -14,7 +14,7 @@ class CreateUserHobbiesTable extends Migration
     public function up()
     {
         Schema::create('user_hobbies', function (Blueprint $table) {
-            $table->integer('id');
+            $table->id('id')->primarykey();
             $table->integer('id_user')->unique();
             $table->integer('id_hobby')->unique();
             $table->timestamp('last_update');
