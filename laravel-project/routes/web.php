@@ -59,5 +59,4 @@ Route::post('add6',[lInsertIdHobbies::class, 'add6']);
 
 Route::get('UserHobbies',[lUserHobbies::class, 'index']);
 Route::post('add7',[lUserHobbies::class, 'add7']);
-
-Route::get('ListUserHobbies', [JoinTable::class, 'index']);
+Route::get('ListUserHobbies', [lUserHobbies::class, 'viewjointable']);

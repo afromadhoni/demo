@@ -27,12 +27,19 @@ class lUserHobbies extends Controller
         ]);
 
         $query = DB::table('users')->where(['username'=>$request->input('username'), 'password'=>$request->input('password')])->exists();
-        $list = JoinTable::class('index');
+
         if($query)
         {   
-            return $list;
+            $data = UserList::join('hobbies', 'hobbies.id', '=', 'users.id')
+                            ->join('user_hobbies', 'user_hobbies.id', '=', 'hobbies.id')
+                          	->get(['users.id', 'users.username', 'hobbies.hobby','user_hobbies.id_hobby']);
+            
+            return view('ListUserHobbies.index', compact('data'));       
+
         }else{
             echo "username not valid";
         }
+
+        
     }
 }

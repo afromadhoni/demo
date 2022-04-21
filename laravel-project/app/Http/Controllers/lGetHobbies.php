@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\UserList;
+
 
 class lGetHobbies extends Controller
 {
@@ -20,12 +22,14 @@ class lGetHobbies extends Controller
         ]);
 
         $query = DB::table('users')->where(['username'=>$request->input('username'), 'password'=>$request->input('password')])->exists();
+        $id = DB::table('hobbies')->get('hobby');  
 
         if($query)
         {
-                echo DB::table('hobbies')->get('hobby');
+            echo $id;
         }else{
             echo "username not valid";
         }
     }
 }
+
